@@ -14,15 +14,27 @@ namespace DirectoryHelpersLibrary.Classes
     public class GlobbingOperations
     {
         public delegate void OnTraverse(string sender);
+        /// <summary>
+        /// Provides listeners with current file being processed
+        /// </summary>
         public static event OnTraverse Traverse;
 
         public delegate void OnTraverseFileMatch(FileMatchItem sender);
+        /// <summary>
+        /// Informs listener of a <see cref="FileMatchItem"/>
+        /// </summary>
         public static event OnTraverseFileMatch TraverseFileMatch;
 
         public delegate void OnNoMatches();
+        /// <summary>
+        /// Informs listener there is no match <see cref="PatternMatchingResult"/> for a pattern
+        /// </summary>
         public static event OnNoMatches NoMatches;
 
         public delegate void OnDone(string message);
+        /// <summary>
+        /// Indicates processing has completed
+        /// </summary>
         public static event OnDone Done;
 
         public static string FolderNotExistsText => "Folder does not exists";
@@ -30,7 +42,7 @@ namespace DirectoryHelpersLibrary.Classes
         /// <summary>
         /// Folder to search/filter 
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">folder to traverse</param>
         /// <param name="includePatterns">
         /// pattern match to filter e.g. **/s*.cs for all .cs files beginning with s in all folders under folderName
         /// </param>
@@ -71,6 +83,9 @@ namespace DirectoryHelpersLibrary.Classes
         /// <param name="path">folder to traverse</param>
         /// <param name="includePatterns">pattern match to filter e.g. **/s*.cs for all .cs files beginning with s in all folders under folderName </param>
         /// <param name="fileExtensions">file extensions without period to get e.g. cs for csharp, txt for text file etc</param>
+        /// <remarks>
+        /// Code sample to use will follow, needed to take it out as it had sensitive information
+        /// </remarks>
         public static void FindStyleSheets(string path, string[] includePatterns, string[] fileExtensions)
         {
 
@@ -103,14 +118,20 @@ namespace DirectoryHelpersLibrary.Classes
 
         }
 
-        public static List<FileMatchItem> Synchronous(string parentFolder, string[] patterns)
+        /// <summary>
+        /// Simple example to find files matching a pattern in a folder
+        /// </summary>
+        /// <param name="path">folder to traverse</param>
+        /// <param name="patterns">include pattern</param>
+        /// <returns>list of FileMatchItem</returns>
+        public static List<FileMatchItem> Synchronous(string path, string[] patterns)
         {
             List<FileMatchItem> list = new();
 
             Matcher matcher = new();
             matcher.AddIncludePatterns(patterns);
             
-            foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+            foreach (string file in matcher.GetResultsInFullPath(path))
             {
                 list.Add(new FileMatchItem(file));
             }
@@ -118,8 +139,13 @@ namespace DirectoryHelpersLibrary.Classes
             return list;
 
         }
-
-        public static async Task<List<FileMatchItem>> Asynchronous(string parentFolder, string[] patterns)
+        /// <summary>
+        /// Simple example to find files matching a pattern in a folder
+        /// </summary>
+        /// <param name="path">folder to traverse</param>
+        /// <param name="patterns">include pattern</param>
+        /// <returns>list of FileMatchItem</returns>
+        public static async Task<List<FileMatchItem>> Asynchronous(string path, string[] patterns)
         {
             
             List<FileMatchItem> list = new();
@@ -130,7 +156,7 @@ namespace DirectoryHelpersLibrary.Classes
             return await Task.Run(async () =>
             {
                 await Task.Delay(1);
-                foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+                foreach (string file in matcher.GetResultsInFullPath(path))
                 {
                     list.Add(new FileMatchItem(file));
                 }

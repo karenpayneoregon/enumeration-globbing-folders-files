@@ -10,6 +10,11 @@ namespace DirectoryHelpersLibrary.Classes
 {
     public class FileOperations
     {
+        /// <summary>
+        /// asynchronous read file to a string
+        /// </summary>
+        /// <param name="fileName">existing file</param>
+        /// <returns>file contents</returns>
         public static async Task<string> ReadAllTextAsync(string fileName)
         {
             StringBuilder builder = new ();
@@ -29,6 +34,11 @@ namespace DirectoryHelpersLibrary.Classes
             return builder.ToString();
         }
 
+        /// <summary>
+        /// asynchronous read file to a list of string
+        /// </summary>
+        /// <param name="fileName">existing file</param>
+        /// <returns>contents as a list of string</returns>
         public static async Task<List<string>> ReadAllTextListAsync(string fileName)
         {
             List<string> lineList = new ();

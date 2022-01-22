@@ -11,19 +11,22 @@ namespace DirectoryHelpersLibrary.Classes
     {
         public delegate void OnException(Exception exception);
         /// <summary>
-        /// Callback for subscribers to know about a problem
+        /// Callback for listeners to know about a problem
         /// </summary>
         public static event OnException OnExceptionEvent;
 
         public delegate void OnEmptyFolderFound(string folder);
 
+        /// <summary>
+        /// Callback for listeners to know the folder was not found
+        /// </summary>
         public static event OnEmptyFolderFound EmptyFolderFound;
 
 
         /// <summary>
         /// Iterate folder structure to find files with specific extension(s)
         /// </summary>
-        /// <param name="path">Path to iterate</param>
+        /// <param name="path">folder to traverse</param>
         /// <param name="allowedExtensions">one of more file extensions to search</param>
         /// <returns>list of file names or empty list</returns>
         /// <remarks>
@@ -60,6 +63,12 @@ namespace DirectoryHelpersLibrary.Classes
                 return (false, new List<string>());
             }
         }
+
+        /// <summary>
+        /// asynchronous example to iterate a folder
+        /// </summary>
+        /// <param name="path">folder to traverse</param>
+        /// <returns>file names</returns>
         public static async Task<List<string>> EnumerateFoldersAsync(string path)
             => await Task.Run(() 
                 => Task.FromResult(Directory.EnumerateFiles(path).ToList()));
@@ -67,8 +76,7 @@ namespace DirectoryHelpersLibrary.Classes
         /// <summary>
         /// Demo to show how to find empty folders
         /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
+        /// <param name="path">folder to traverse</param>
         public static async Task FindEmptyFolders(string path)
         {
             await Task.Run(async () =>
