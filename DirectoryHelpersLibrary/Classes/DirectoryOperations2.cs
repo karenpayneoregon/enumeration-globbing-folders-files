@@ -108,7 +108,7 @@ namespace DirectoryHelpersLibrary.Classes
 
             foreach (var file in filePaths)
             {
-                FileInfo info = new FileInfo(file);
+                FileInfo info = new (file);
                 list.Add(new FileItem() {Name = file, Length = info.Length});
             }
 

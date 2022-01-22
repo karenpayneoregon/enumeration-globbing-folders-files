@@ -390,6 +390,10 @@ Take time to run through the various code samples by first reading the code then
 
 Once a having firm understanding to how to work with directories and files take time to first experiment then the final step is to use in a project.
 
+# Updates
+
+**01.22.2022** added new code samples
+
 ## Special notes
 
 - There are several code samples taken from the web and have their links to find the original sources
