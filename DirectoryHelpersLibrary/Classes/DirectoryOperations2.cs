@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,24 +13,45 @@ namespace DirectoryHelpersLibrary.Classes
     public class DirectoryOperations2
     {
         public delegate void OnTraverse(string sender);
+        /// <summary>
+        /// Provides files found iterating folders
+        /// </summary>
         public static event OnTraverse Traverse;
 
         public delegate void OnTraverseFolder(FolderItem sender);
+
+        /// <summary>
+        /// Provides files found iterating folders
+        /// </summary>
         public static event OnTraverseFolder TraverseFolder;
 
         public delegate void OnDone();
+        /// <summary>
+        /// Alters listener processing has completed 
+        /// </summary>
         public static event OnDone Done;
 
         public delegate void OnDoneFiles();
+        /// <summary>
+        /// Alters listener processing has completed 
+        /// </summary>
         public static event  OnDoneFiles DoneFiles;
-
-
+        
         public delegate void OnFolderException(string sender);
+        /// <summary>
+        /// Raised when there is a runtime exception
+        /// </summary>
         public static event OnFolderException FolderException;
 
+        /// <summary>
+        /// Enumerate files asynchronous using events for listeners to do whatever they want
+        /// </summary>
+        /// <param name="path">Path to iterate</param>
+        /// <param name="searchPattern">pattern to filter with</param>
+        /// <param name="searchOption">top level or deep <seealso cref="SearchOption"/></param>
         public static async Task Example1Async(string path, string searchPattern, SearchOption searchOption = SearchOption.AllDirectories)
         {
-
+            
             using var enumerator = await Task.Run(() => Directory.EnumerateFiles(path, searchPattern, searchOption).GetEnumerator());
 
             while (await Task.Run(() => enumerator.MoveNext()))
@@ -42,8 +62,12 @@ namespace DirectoryHelpersLibrary.Classes
             Done?.Invoke();
 
         }
-
-
+        /// <summary>
+        /// Enumerate files asynchronous using events for listeners to do whatever they want
+        /// </summary>
+        /// <param name="path">Path to iterate</param>
+        /// <param name="searchPattern">pattern to filter with</param>
+        /// <param name="searchOption">top level or deep <seealso cref="SearchOption"/> which defaults to SearchOption.AllDirectories</param>
         public static async Task Example2Async(string path, string searchPattern, SearchOption searchOption = SearchOption.AllDirectories)
         {
 
@@ -76,6 +100,12 @@ namespace DirectoryHelpersLibrary.Classes
             DoneFiles?.Invoke();
         }
 
+        /// <summary>
+        /// Enumerate files synchronous using events for listeners to do whatever they want
+        /// </summary>
+        /// <param name="path">Path to iterate</param>
+        /// <param name="searchPattern">Pattern-filter</param>
+        /// <param name="searchOption"><see cref="SearchOption"/></param>
         public static void Example1Sync(string path, string searchPattern, SearchOption searchOption = SearchOption.AllDirectories)
         {
             var filePaths = Directory.EnumerateFiles(path, searchPattern, searchOption);
@@ -87,6 +117,14 @@ namespace DirectoryHelpersLibrary.Classes
             Done?.Invoke();
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="searchPattern"></param>
+        /// <param name="options"></param>
+        /// <param name="searchOption"></param>
         public static void Example2Sync(string path, string searchPattern, EnumerationOptions options, SearchOption searchOption = SearchOption.AllDirectories )
         {
             
@@ -99,6 +137,12 @@ namespace DirectoryHelpersLibrary.Classes
             Done?.Invoke();
         }
 
+        /// <summary>
+        /// Enumerate files synchronous using events for listeners to do whatever they want
+        /// </summary>
+        /// <param name="path">Path to iterate</param>
+        /// <param name="searchPattern">Pattern-filter</param>
+        /// <returns>List of <see cref="FileItem"/> </returns>
         public static List<FileItem> GetFilesSync(string path, string searchPattern)
         {
 
@@ -118,8 +162,10 @@ namespace DirectoryHelpersLibrary.Classes
         public static int _numberOfFolders { get; set; }
         private static readonly ConcurrentBag<Task> _concurrentBagTasks = new();
 
-        // taken from the following and modified for this article
-        // https://stackoverflow.com/questions/34579606/asynchronously-enumerate-folders
+        /// <summary>
+        /// Demonstration for returning folders asynchronous
+        /// </summary>
+        /// <param name="path">Path to iterate</param>
         public static async Task CollectFolders(string path)
         {
 
@@ -137,6 +183,10 @@ namespace DirectoryHelpersLibrary.Classes
         }
 
 
+        /// <summary>
+        /// Recursive method to enumerate files
+        /// </summary>
+        /// <param name="dir">path to start processing</param>
         private static void CrawlFolder(DirectoryInfo dir)
         {
             try
