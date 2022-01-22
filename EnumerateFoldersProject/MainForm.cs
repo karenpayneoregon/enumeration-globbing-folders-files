@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DirectoryHelpersLibrary.Classes;
+using DirectoryHelpersLibrary.Models;
 using static DirectoryHelpersLibrary.Classes.DirectoryOperations2;
 
 namespace EnumerateFoldersProject
@@ -65,12 +66,12 @@ namespace EnumerateFoldersProject
         /// Filter for folders named Classes
         /// </summary>
         /// <param name="sender"></param>
-        private void OnTraverseFolder(string sender)
+        private void OnTraverseFolder(FolderItem sender)
         {
 
-            if (sender.Contains("Classes"))
+            if (sender.Name.Contains("Classes"))
             {
-                _classFolders.Add(sender);
+                _classFolders.Add(sender.Name);
             }
         }
 

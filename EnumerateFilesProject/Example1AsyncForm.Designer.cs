@@ -89,7 +89,7 @@ namespace EnumerateFilesProject
             this.CollectButton.TabIndex = 2;
             this.CollectButton.Text = "Collect";
             this.CollectButton.UseVisualStyleBackColor = true;
-            this.CollectButton.Click += new System.EventHandler(this.button1_Click);
+            this.CollectButton.Click += new System.EventHandler(this.CollectButton_Click);
             // 
             // ExecuteButtonSync
             // 

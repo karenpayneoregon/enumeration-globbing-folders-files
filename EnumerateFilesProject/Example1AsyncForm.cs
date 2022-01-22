@@ -101,7 +101,7 @@ namespace EnumerateFilesProject
             }
         }
 
-        private  void button1_Click(object sender, EventArgs e)
+        private  void CollectButton_Click(object sender, EventArgs e)
         {
             string path = DirectoryHelper.SolutionFolder();
             _ = DirectoryOperations2.CollectFolders(path);

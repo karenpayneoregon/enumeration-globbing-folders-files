@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsFormsLibrary", "Wind
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobbingProject", "GlobbingProject\GlobbingProject.csproj", "{4E595674-9D89-4687-B94D-EAFAA87B4793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerateFoldersProject", "EnumerateFoldersProject\EnumerateFoldersProject.csproj", "{4D8E6807-A173-4CB4-8B7F-380B95266F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerateFoldersProject", "EnumerateFoldersProject\EnumerateFoldersProject.csproj", "{4D8E6807-A173-4CB4-8B7F-380B95266F70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

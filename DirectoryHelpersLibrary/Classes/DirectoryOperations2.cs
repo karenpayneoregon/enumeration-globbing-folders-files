@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DirectoryHelpersLibrary.Models;
+using Directory = System.IO.Directory;
 
 namespace DirectoryHelpersLibrary.Classes
 {
@@ -14,7 +16,7 @@ namespace DirectoryHelpersLibrary.Classes
         public delegate void OnTraverse(string sender);
         public static event OnTraverse Traverse;
 
-        public delegate void OnTraverseFolder(string sender);
+        public delegate void OnTraverseFolder(FolderItem sender);
         public static event OnTraverseFolder TraverseFolder;
 
         public delegate void OnDone();
@@ -83,6 +85,7 @@ namespace DirectoryHelpersLibrary.Classes
             }
 
             Done?.Invoke();
+
         }
         public static void Example2Sync(string path, string searchPattern, EnumerationOptions options, SearchOption searchOption = SearchOption.AllDirectories )
         {
@@ -94,6 +97,22 @@ namespace DirectoryHelpersLibrary.Classes
             }
 
             Done?.Invoke();
+        }
+
+        public static List<FileItem> GetFilesSync(string path, string searchPattern)
+        {
+
+            List<FileItem> list = new List<FileItem>();
+
+            var filePaths = Directory.EnumerateFiles(path, searchPattern, SearchOption.AllDirectories);
+
+            foreach (var file in filePaths)
+            {
+                FileInfo info = new FileInfo(file);
+                list.Add(new FileItem() {Name = file, Length = info.Length});
+            }
+
+            return list;
         }
 
         public static int _numberOfFolders { get; set; }
@@ -129,7 +148,8 @@ namespace DirectoryHelpersLibrary.Classes
                     _concurrentBagTasks.Add(Task.Run(() => CrawlFolder(di)));
                 }
 
-                TraverseFolder?.Invoke($"{dir.FullName}");
+                var fileCount = Directory.EnumerateFiles(dir.FullName, "*.*", SearchOption.TopDirectoryOnly).Count();
+                TraverseFolder?.Invoke(new FolderItem() {Name = dir.FullName, Count = fileCount});
 
                 _numberOfFolders++;
 
