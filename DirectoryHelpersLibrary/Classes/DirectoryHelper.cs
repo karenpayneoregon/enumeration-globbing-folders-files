@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace DirectoryHelpersLibrary.Classes
@@ -34,6 +35,14 @@ namespace DirectoryHelpersLibrary.Classes
                 folderList[level - 1] : 
                 folderName : folderName;
         }
+
+        /// <summary>
+        /// Jump one folder level towards root
+        /// </summary>
+        /// <param name="sender">Existing folder and file name</param>
+        /// <returns></returns>
+        public static string UpOneLevel(string sender) 
+            => UpperFolder(Path.GetDirectoryName(sender), 1);
 
         /// <summary>
         /// From project folder, get the solution folder path

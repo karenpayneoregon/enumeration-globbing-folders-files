@@ -62,6 +62,14 @@ namespace DirectoryHelpersLibrary.Classes
             Done?.Invoke();
 
         }
+        public static async Task CollectFiles(string path, string searchPattern, SearchOption searchOption = SearchOption.TopDirectoryOnly)
+        {
+            using var enumerator = await Task.Run(() => Directory.EnumerateFiles(path, searchPattern, searchOption).GetEnumerator());
+            while (await Task.Run(() => enumerator.MoveNext()))
+            {
+                Traverse?.Invoke(enumerator.Current);
+            }
+        }
         /// <summary>
         /// Enumerate files asynchronous using events for listeners to do whatever they want
         /// </summary>
