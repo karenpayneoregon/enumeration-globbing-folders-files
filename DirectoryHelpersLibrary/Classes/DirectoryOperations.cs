@@ -37,6 +37,10 @@ namespace DirectoryHelpersLibrary.Classes
             => await Task.Run(() => Task.FromResult(Directory.EnumerateFiles(path).Where(file => 
                     allowedExtensions.Any(file.ToLower().EndsWith)).ToList()));
 
+        public static async Task<int> FileCount(string path, string[] allowedExtensions)
+            => await Task.Run(() => Task.FromResult(Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories).Where(file =>
+                allowedExtensions.Any(file.ToLower().EndsWith)).ToList().Count));
+
         /// <summary>
         /// Iterate folder structure to find files with specific extension(s)
         /// </summary>

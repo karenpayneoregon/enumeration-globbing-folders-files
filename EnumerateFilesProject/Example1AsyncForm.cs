@@ -133,6 +133,12 @@ namespace EnumerateFilesProject
             _fileLinesList.Add(new FileLines() {Name = file, Lines = lines});
         }
         #endregion
+
+        private async void FileCountButton_Click(object sender, EventArgs e)
+        {
+            var count = await DirectoryOperations.FileCount(@"C:\OED\Dotnetland\VS2019\GlobbingSolution", new[] { ".cs" });
+            Debug.WriteLine(count);
+        }
     }
 
 

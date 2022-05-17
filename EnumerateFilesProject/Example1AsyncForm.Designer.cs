@@ -33,6 +33,7 @@ namespace EnumerateFilesProject
             this.ExecuteButtonAsync = new System.Windows.Forms.Button();
             this.ResultsListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.FileCountButton = new System.Windows.Forms.Button();
             this.WithActionButton = new System.Windows.Forms.Button();
             this.CollectButton = new System.Windows.Forms.Button();
             this.ExecuteButtonSync = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@ namespace EnumerateFilesProject
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.FileCountButton);
             this.panel1.Controls.Add(this.WithActionButton);
             this.panel1.Controls.Add(this.CollectButton);
             this.panel1.Controls.Add(this.ExecuteButtonSync);
@@ -70,6 +72,16 @@ namespace EnumerateFilesProject
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(769, 41);
             this.panel1.TabIndex = 2;
+            // 
+            // FileCountButton
+            // 
+            this.FileCountButton.Location = new System.Drawing.Point(566, 8);
+            this.FileCountButton.Name = "FileCountButton";
+            this.FileCountButton.Size = new System.Drawing.Size(119, 23);
+            this.FileCountButton.TabIndex = 4;
+            this.FileCountButton.Text = "File count";
+            this.FileCountButton.UseVisualStyleBackColor = true;
+            this.FileCountButton.Click += new System.EventHandler(this.FileCountButton_Click);
             // 
             // WithActionButton
             // 
@@ -125,6 +137,7 @@ namespace EnumerateFilesProject
         private System.Windows.Forms.Button ExecuteButtonSync;
         private System.Windows.Forms.Button CollectButton;
         private System.Windows.Forms.Button WithActionButton;
+        private System.Windows.Forms.Button FileCountButton;
     }
 }
 
