@@ -1,12 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+  <!--<PropertyGroup>
     <OutputType>WinExe</OutputType>
 	  <LangVersion>9.0</LangVersion>
 	  <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Search_16x_yellow.ico</ApplicationIcon>
-  </PropertyGroup>
+  </PropertyGroup>-->
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ApplicationIcon>Search_16x_yellow.ico</ApplicationIcon>
+	</PropertyGroup>
 
   <ItemGroup>
     <None Remove="readme.md" />

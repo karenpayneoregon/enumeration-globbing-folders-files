@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsLibrary.LanguageExtensions;
 using static System.DateTime;
+using Timer = System.Windows.Forms.Timer;
 
 
 namespace WindowsFormsLibrary.Classes
