@@ -27,8 +27,8 @@ namespace GlobbingProject
         {
             ResultListBox.InvokeIfRequired(listBox =>
             {
-                listBox.Items.Add(Path.Combine(sender.Folder, sender.FileName));
-                listBox.SelectedIndex = listBox.Items.Count - 1;
+                //listBox.Items.Add(Path.Combine(sender.Folder, sender.FileName));
+                //listBox.SelectedIndex = listBox.Items.Count - 1;
             });
         }
 
@@ -39,10 +39,17 @@ namespace GlobbingProject
         private async void ExecuteButton_Click(object sender, EventArgs e)
         {
             ResultListBox.Items.Clear();
-            string path = DirectoryHelper.SolutionFolder();
+            string path = "C:\\OED\\DotnetLand\\VS2019"; //DirectoryHelper.SolutionFolder();
 
             string[] include = { "**/*.cs" };
-            string[] exclude = { "**/*Assembly*.cs", "**/*Designer*.cs" };
+            string[] exclude =
+            {
+                "**/*Assembly*.cs", 
+                "**/*Designer*.cs", 
+                "**/*.g.i.cs", 
+                "**/*.g.cs", 
+                "**/TemporaryGeneratedFile*.cs"
+            };
 
             await GlobbingOperations.Asynchronous(path, include, exclude);
         }

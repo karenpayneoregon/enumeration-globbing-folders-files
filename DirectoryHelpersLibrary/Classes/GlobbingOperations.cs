@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using DirectoryHelpersLibrary.Models;
 using Microsoft.Extensions.FileSystemGlobbing;
@@ -184,7 +185,9 @@ namespace DirectoryHelpersLibrary.Classes
                 
                 foreach (string file in matcher.GetResultsInFullPath(parentFolder))
                 {
-                    TraverseFileMatch?.Invoke(new FileMatchItem(file));
+                    //TraverseFileMatch?.Invoke(new FileMatchItem(file));
+                    var test = new FileMatchItem(file);
+                    Debug.WriteLine($"{Path.Combine(test.Folder, test.FileName)}");
                 }
             });
 

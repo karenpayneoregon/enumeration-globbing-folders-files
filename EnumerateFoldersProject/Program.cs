@@ -17,7 +17,7 @@ namespace EnumerateFoldersProject
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListViewForm());
+            Application.Run(new MainForm());
         }
     }
 }
