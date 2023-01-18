@@ -1,11 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
+	<!--<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<LangVersion>9.0</LangVersion>
 		<TargetFramework>net5.0-windows</TargetFramework>
 		<LangVersion>9.0</LangVersion>
 		<UseWindowsForms>true</UseWindowsForms>
+		<ApplicationIcon>Search.ico</ApplicationIcon>
+	</PropertyGroup>-->
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<ApplicationIcon>Search.ico</ApplicationIcon>
 	</PropertyGroup>
 
