@@ -7,6 +7,9 @@ At any level of programming in C# there will be a need during the career of a de
 
 Most examples that surface will show how to get files in a folder for one file extension and for simplicity are generally synchronous. One file extension is generally what a developer needs while enumerating a folder with a deep level of folders local or remote can cause the application to become unresponsive.
 
+> **Note**
+> Although code is presented in Windows Forms the base code will work in other project types
+
 ## Requires
 
 - Microsoft [Visual Studio](https://visualstudio.microsoft.com/) 2022 or higher - 17.4x
