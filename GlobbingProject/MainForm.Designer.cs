@@ -31,52 +31,31 @@ namespace GlobbingProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ExecuteButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ResultListBox = new System.Windows.Forms.ListBox();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExecuteButton
             // 
-            this.ExecuteButton.Location = new System.Drawing.Point(12, 15);
+            this.ExecuteButton.Location = new System.Drawing.Point(161, 62);
+            this.ExecuteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExecuteButton.Name = "ExecuteButton";
-            this.ExecuteButton.Size = new System.Drawing.Size(102, 23);
+            this.ExecuteButton.Size = new System.Drawing.Size(117, 31);
             this.ExecuteButton.TabIndex = 1;
             this.ExecuteButton.Text = "Execute";
             this.ExecuteButton.UseVisualStyleBackColor = true;
             this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ExecuteButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 246);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(580, 47);
-            this.panel1.TabIndex = 2;
-            // 
-            // ResultListBox
-            // 
-            this.ResultListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ResultListBox.FormattingEnabled = true;
-            this.ResultListBox.ItemHeight = 15;
-            this.ResultListBox.Location = new System.Drawing.Point(0, 0);
-            this.ResultListBox.Name = "ResultListBox";
-            this.ResultListBox.Size = new System.Drawing.Size(580, 246);
-            this.ResultListBox.TabIndex = 3;
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 293);
-            this.Controls.Add(this.ResultListBox);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(439, 154);
+            this.Controls.Add(this.ExecuteButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Globbing";
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -84,8 +63,6 @@ namespace GlobbingProject
         #endregion
 
         private System.Windows.Forms.Button ExecuteButton;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox ResultListBox;
     }
 }
 

@@ -1,5 +1,8 @@
 ﻿# About
 
+> **Note**
+> Original code was displaying results in real time to a ListBox, now writes to a log file.
+
 Demonstrates basic use of [Matcher.AddExclude](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.filesystemglobbing.matcher.addexclude?view=dotnet-plat-ext-6.0) and [Matcher.AddInclude](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.filesystemglobbing.matcher.addinclude?view=dotnet-plat-ext-6.0) for [file globbing](https://docs.microsoft.com/en-us/dotnet/core/extensions/file-globbing).
 
 Objective, to get all files under the current Visual Studio solution which are at the root folder and below.
