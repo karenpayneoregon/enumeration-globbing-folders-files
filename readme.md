@@ -9,7 +9,7 @@ Most examples that surface will show how to get files in a folder for one file e
 
 ## Requires
 
-- Microsoft [Visual Studio](https://visualstudio.microsoft.com/) 2019 or higher
+- Microsoft [Visual Studio](https://visualstudio.microsoft.com/) 2022 or higher - 17.4x
 - Microsoft [.NET Core](https://dotnet.microsoft.com/en-us/download/dotnet) 5 or higher
 - C# 9 or higher
 
@@ -393,6 +393,8 @@ Once a having firm understanding to how to work with directories and files take 
 # Updates
 
 **01.22.2022** added new code samples
+**01.18.2023** Moved to .NET Core 7
+
 
 ## Special notes
 
