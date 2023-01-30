@@ -1,4 +1,4 @@
-﻿namespace DirectoryHelpersLibrary.Classes;
+﻿namespace FindEmptyFolderExample.Classes;
 
 /// <summary>
 /// Provides code to iterate a folder forwards or backwards, see SolutionFolder()
