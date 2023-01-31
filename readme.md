@@ -399,8 +399,3 @@ Once a having firm understanding to how to work with directories and files take 
 
 **01.18.2023** Moved to .NET Core 7
 
-
-## Special notes
-
-- There are several code samples taken from the web and have their links to find the original sources
-- Several projects have empty class files which allow for seeing results better 
