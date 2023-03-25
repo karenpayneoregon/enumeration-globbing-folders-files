@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindEmptyFolderExample", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobbingRazorProject", "GlobbingRazorProject\GlobbingRazorProject.csproj", "{B59DD1B3-B929-45B1-93A7-F9E267EC6122}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeleteFolders", "DeleteFolders\DeleteFolders.csproj", "{E63E7A17-5AD8-4CCD-B7AA-2C24078FEEB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{B59DD1B3-B929-45B1-93A7-F9E267EC6122}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B59DD1B3-B929-45B1-93A7-F9E267EC6122}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B59DD1B3-B929-45B1-93A7-F9E267EC6122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63E7A17-5AD8-4CCD-B7AA-2C24078FEEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63E7A17-5AD8-4CCD-B7AA-2C24078FEEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63E7A17-5AD8-4CCD-B7AA-2C24078FEEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63E7A17-5AD8-4CCD-B7AA-2C24078FEEB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{1717FE11-6E92-4D8F-AB61-BFE52DF884DC} = {F604741E-E9CB-46DF-B03F-A5C9957B3437}
 		{AC1D0E10-CB15-4FD3-BF9B-BD483B4DAC0F} = {F604741E-E9CB-46DF-B03F-A5C9957B3437}
 		{B59DD1B3-B929-45B1-93A7-F9E267EC6122} = {2B5A957C-F2C7-4826-AC2D-76BFE8B09806}
+		{E63E7A17-5AD8-4CCD-B7AA-2C24078FEEB1} = {2B5A957C-F2C7-4826-AC2D-76BFE8B09806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C36B04D4-64ED-463E-AE90-A3D045DD62A1}
