@@ -1,10 +1,9 @@
 ﻿
-namespace WindowsFormsLibrary.Classes
+namespace WindowsFormsLibrary.Classes;
+
+public enum NoShowResult
 {
-    public enum NoShowResult
-    {
-        DoNotShowAgain,
-        StopOperation,
-        No
-    }
+    DoNotShowAgain,
+    StopOperation,
+    No
 }

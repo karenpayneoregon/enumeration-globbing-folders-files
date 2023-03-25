@@ -105,7 +105,7 @@ public class GlobbingOperations
 
         foreach (var match in patternMatching.Files)
         {
-            Traverse?.Invoke(Path.Combine(path, match.Stem).Replace("/", "\\"));
+            Traverse?.Invoke(Path.Combine(path, match.Stem!).Replace("/", "\\"));
         }
 
         Done?.Invoke($"Match count {patternMatching.Files.Count()}");
@@ -166,8 +166,6 @@ public class GlobbingOperations
     /// <param name="excludePatterns">pattern to exclude</param>
     public static async Task Asynchronous(string parentFolder, string[] patterns, string[] excludePatterns)
     {
-
-        List<FileMatchItem> list = new();
 
         Matcher matcher = new();
         matcher.AddIncludePatterns(patterns);

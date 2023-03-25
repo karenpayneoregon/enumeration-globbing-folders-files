@@ -113,13 +113,16 @@ namespace EnumerateFilesProject
         private async void WithActionButton_Click(object sender, EventArgs e)
         {
             _fileLinesList = new List<FileLines>();
+            
             string path = $"{DirectoryHelper.SolutionFolder()}\\DirectoryHelpersLibrary\\Classes";
+
             await DirectoryOperations2.Example3Async(
                 path,
                 "*.cs",
                 SearchOption.TopDirectoryOnly, WorkAsync);
 
             Dialogs.Information($"Found {_fileLinesList.Count} files");
+
         }
         /// <summary>
         /// Here we get lines from a file, from here it's possible to extend
@@ -136,7 +139,8 @@ namespace EnumerateFilesProject
 
         private async void FileCountButton_Click(object sender, EventArgs e)
         {
-            var count = await DirectoryOperations.FileCount(@"C:\OED\Dotnetland\VS2019\GlobbingSolution", new[] { ".cs" });
+            string path = DirectoryHelper.SolutionFolder();
+            var count = await DirectoryOperations.FileCount(path, new[] { ".cs" });
             Debug.WriteLine(count);
         }
     }

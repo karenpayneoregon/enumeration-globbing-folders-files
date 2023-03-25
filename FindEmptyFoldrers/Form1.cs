@@ -7,6 +7,7 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
+
         FolderOperations.EmptyFolderFound += FolderOperations_EmptyFolderFound;
         FolderOperations.Done += FolderOperationsOnDone;
         FolderOperations.FindEmptyFolders(DirectoryHelper.SolutionFolder());

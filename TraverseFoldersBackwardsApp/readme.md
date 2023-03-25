@@ -2,11 +2,11 @@
 
 Example to traverse a path in reverse with a stopping point so not to reach passed the upper folder to search.
 
-![](../assets/backwards.png)
 
+![Backwards](assets/backwards.png)
 For instance, we pass in and want to stop at C:\OED
 
-C:\OED\Dotnetland\VS2019\GlobbingSolution\TraverseFoldersBackwardsApp\bin\Debug\net5.0-windows\Stuff\MoreStuff
+C:\OED\Dotnetland\VS2019\GlobbingSolution\TraverseFoldersBackwardsApp\bin\Debug\net7.0-windows\Stuff\MoreStuff
 
 We pass in the full path and OED for the stopper.
 

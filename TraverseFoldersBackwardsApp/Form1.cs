@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows.Forms;
-using DirectoryHelpersLibrary.Classes;
+﻿using DirectoryHelpersLibrary.Classes;
 using TraverseFoldersBackwardsApp.Classes;
+#pragma warning disable CS8622
 
 namespace TraverseFoldersBackwardsApp
 {
@@ -25,9 +24,11 @@ namespace TraverseFoldersBackwardsApp
         {
             
             var folder = 
-                "C:\\OED\\Dotnetland\\VS2019\\GlobbingSolution\\" + 
-                "TraverseFoldersBackwardsApp\\bin\\Debug\\net5.0-windows\\Stuff\\MoreStuff";
-
+                "C:\\OED\\Dotnetland\\VS2019\\GlobbingSolution\\TraverseFoldersBackwardsApp\\bin\\Debug\\net7.0-windows\\Stuff\\MoreStuff";
+            if (Directory.Exists(folder) && Directory.Exists("C:\\OED"))
+            {
+                
+            }
             await Operations.TraverseFolderBackwards(folder, "C:\\OED");
 
         }
