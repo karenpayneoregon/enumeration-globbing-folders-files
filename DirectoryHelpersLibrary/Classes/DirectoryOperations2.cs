@@ -195,6 +195,7 @@ public class DirectoryOperations2
         try
         {
             DirectoryInfo[] directoryInfos = dir.GetDirectories();
+            
             foreach (DirectoryInfo childInfo in directoryInfos)
             {
                 DirectoryInfo di = childInfo;

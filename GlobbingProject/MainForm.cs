@@ -47,7 +47,6 @@ namespace GlobbingProject
         private async void ExecuteButton_Click(object sender, EventArgs e)
         {
             string path =  DirectoryHelper.SolutionFolder();
-            //string path = "C:\\OED\\DotnetLand\\VS2019";
 
             string[] include = { "**/*.cs" };
             string[] exclude =
