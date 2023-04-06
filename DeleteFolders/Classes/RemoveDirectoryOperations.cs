@@ -3,6 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace DeleteFolders.Classes;
 
+/// <summary>
+/// Duplication of DirectoryHelpersLibrary.Classes.DirectoryOperations1 were this one
+/// added [CallerMemberName] on several events
+/// </summary>
 public class RemoveDirectoryOperations
 {
     public delegate void OnDelete(string status, [CallerMemberName] string callerName = null);

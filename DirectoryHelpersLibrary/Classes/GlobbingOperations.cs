@@ -209,4 +209,27 @@ public class GlobbingOperations
         Done?.Invoke("Finished");
 
     }
+
+    public static async Task GetFiles(string parentFolder, string[] patterns, string[] excludePatterns)
+    {
+
+        List<FileMatchItem> list = new();
+
+        Matcher matcher = new();
+        matcher.AddIncludePatterns(patterns);
+        matcher.AddExcludePatterns(excludePatterns);
+        
+
+        await Task.Run(() =>
+        {
+
+            foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+            {
+                TraverseFileMatch?.Invoke(new FileMatchItem(file));
+            }
+        });
+
+        Done?.Invoke("Finished");
+
+    }
 }
