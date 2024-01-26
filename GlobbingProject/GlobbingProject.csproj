@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <!--<PropertyGroup>
+	<!--<PropertyGroup>
     <OutputType>WinExe</OutputType>
 	  <LangVersion>9.0</LangVersion>
 	  <TargetFramework>net5.0-windows</TargetFramework>
@@ -17,53 +17,45 @@
 		<ApplicationIcon>Search_16x_yellow.ico</ApplicationIcon>
 	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="readme.md" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="readme.md" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="readme.md" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="readme.md" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DirectoryHelpersLibrary\DirectoryHelpersLibrary.csproj" />
-    <ProjectReference Include="..\WindowsFormsLibrary\WindowsFormsLibrary.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DirectoryHelpersLibrary\DirectoryHelpersLibrary.csproj" />
+		<ProjectReference Include="..\WindowsFormsLibrary\WindowsFormsLibrary.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-	  <PackageReference Include="Serilog" Version="2.11.0" />
-	  <!-- ReSharper disable once VulnerablePackage -->
-	  <PackageReference Include="Serilog.Settings.AppSettings" Version="2.2.2" />
-	  <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
-	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-	  <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-	  <PackageReference Include="Spectre.Console" Version="0.44.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Serilog" Version="2.12.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+		<PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+	</ItemGroup>
 
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>

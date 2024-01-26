@@ -173,7 +173,6 @@ public class GlobbingOperations
 
         await Task.Run( () =>
         {
-                
             foreach (string file in matcher.GetResultsInFullPath(parentFolder))
             {
                 TraverseFileMatch?.Invoke(new FileMatchItem(file));

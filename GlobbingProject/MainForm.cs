@@ -1,43 +1,30 @@
 ﻿using Serilog;
-using Serilog.Core;
 using DirectoryHelpersLibrary.Classes;
 using DirectoryHelpersLibrary.Models;
-using Microsoft.Extensions.Configuration;
 using WindowsFormsLibrary.Classes;
-using Serilog.Events;
 
 namespace GlobbingProject
 {
     public partial class MainForm : Form
     {
-        private static Logger Logger;
         public MainForm()
         {
             InitializeComponent();
-
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", true, true)
-                .Build();
-
-            Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(configuration)
-                .CreateLogger();
-
+            
             GlobbingOperations.TraverseFileMatch += TraverseFileMatch;
             GlobbingOperations.Done += Done;
-
             
         }
 
         private void Done(string message)
         {
-            Logger.Write(LogEventLevel.Information, "Done\n");
+            Log.Information("Done\n");
             Dialogs.AutoCloseDialog(this, message, Properties.Resources.blueInformation_32, 2);
         }
 
         private void TraverseFileMatch(FileMatchItem sender)
         {
-            Logger.Write(LogEventLevel.Information, Path.Combine(sender.Folder, sender.FileName));
+            Log.Information(Path.Combine(sender.Folder, sender.FileName));
         }
 
         /// <summary>
@@ -58,9 +45,9 @@ namespace GlobbingProject
                 "**/TemporaryGeneratedFile*.cs"
             };
 
-            Logger.Write(LogEventLevel.Information, "starting");
+            Log.Information("starting");
 
-            await GlobbingOperations.Asynchronous(path, include, exclude);
+            await GlobbingOperations.IncludeExclude(path, include, exclude);
         }
     }
 }

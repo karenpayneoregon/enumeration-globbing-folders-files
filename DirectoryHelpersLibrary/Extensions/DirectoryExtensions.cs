@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Microsoft.Extensions.FileSystemGlobbing;
+using System.Text.RegularExpressions;
 
 namespace DirectoryHelpersLibrary.Extensions;
 
@@ -9,6 +10,9 @@ namespace DirectoryHelpersLibrary.Extensions;
 /// </summary>
 public static class DirectoryExtensions
 {
+    public static IEnumerable<string> ResultsInFullPath(this Matcher matcher,string path) 
+        => matcher.GetResultsInFullPath(path);
+
     // Regex version
     public static IEnumerable<string> GetFiles(string path,
         string searchPatternExpression = "",
