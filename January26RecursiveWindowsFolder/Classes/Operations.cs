@@ -1,3 +1,4 @@
+// ReSharper disable NotDisposedResourceIsReturned
 namespace January26RecursiveWindowsFolder.Classes;
 
 public class Operations
@@ -13,7 +14,8 @@ public class Operations
     {
         var options = new EnumerationOptions { IgnoreInaccessible = true, RecurseSubdirectories = true };
 
-        using var enumerator = await Task.Run(() => Directory.EnumerateFiles(path, searchPattern, options).GetEnumerator(), ct);
+        using var enumerator = await Task.Run(() => Directory.EnumerateFiles(path, searchPattern, options)
+            .GetEnumerator(), ct);
 
         while (await Task.Run(() => enumerator.MoveNext(), ct))
         {

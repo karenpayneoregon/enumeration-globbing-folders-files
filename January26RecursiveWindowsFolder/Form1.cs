@@ -7,6 +7,7 @@ public partial class Form1 : Form
 {
     private CancellationTokenSource cancellationTokenSource = new();
     private Operations operations = new();
+    private List<string> List = new();
     public Form1()
     {
         InitializeComponent();

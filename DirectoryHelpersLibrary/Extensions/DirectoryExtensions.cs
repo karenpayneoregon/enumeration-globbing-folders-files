@@ -40,7 +40,7 @@ public static class DirectoryExtensions
     {
         if (extensions == null)
         {
-            throw new ArgumentNullException("extensions");
+            throw new ArgumentNullException(nameof(extensions));
         }
 
         IEnumerable<FileInfo> files = dir.EnumerateFiles();

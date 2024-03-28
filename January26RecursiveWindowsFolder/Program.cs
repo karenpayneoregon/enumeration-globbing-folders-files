@@ -1,3 +1,5 @@
+using January26RecursiveWindowsFolder.Entries;
+
 namespace January26RecursiveWindowsFolder;
 
 internal static class Program
