@@ -20,7 +20,7 @@ public partial class MainWindow : Form
         var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Folders.txt");
 
         /*
-         * By default there are no folder names in the ListBox,
+         * By default, there are no folder names in the ListBox,
          * you need to populate the ListBox with one or more existing folders
          */
 
@@ -103,7 +103,7 @@ public partial class MainWindow : Form
                  */
                 string[] fileExtensions = { "css" };
 
-                GlobbingOperations.FindStyleSheets(
+                GlobbingOperations.FindItems(
                     FolderListBox.Text, 
                     includes, 
                     fileExtensions);

@@ -80,9 +80,8 @@ public class GlobbingOperations
     /// <remarks>
     /// Code sample to use will follow, needed to take it out as it had sensitive information
     /// </remarks>
-    public static void FindStyleSheets(string path, string[] includePatterns, string[] fileExtensions)
+    public static void FindItems(string path, string[] includePatterns, string[] fileExtensions)
     {
-
         if (!Directory.Exists(path))
         {
             Traverse?.Invoke(FolderNotExistsText);
@@ -95,7 +94,6 @@ public class GlobbingOperations
         Matcher matcher = new ();
 
         matcher.AddIncludePatterns(includePatterns);
- 
         PatternMatchingResult patternMatching =  matcher.Execute(dirInfo);
 
         if (!patternMatching.HasMatches)
