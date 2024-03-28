@@ -5,21 +5,17 @@ namespace FindFoldersApp;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    private static void Main()
     {
         var root = DirectoryOperations.GetSolutionInfo().FullName;
         AnsiConsole.MarkupLine($"[yellow]Root:[/] [b]{root}[/]");
 
-        string[] modelsDirectories = Glob.Directories(root, "**/Models").ToArray();
-        string[] classesDirectories = Glob.Directories(root, "**/Classes").ToArray();
-        string[] extensionsDirectories = Glob.Directories(root, "**/*extensions", 
-            GlobOptions.CaseInsensitive).ToArray();
-
-        List<string> directories = 
+        List<string> directories =
             [
-                .. modelsDirectories, 
-                .. extensionsDirectories, 
-                .. classesDirectories
+                    .. Glob.Directories(root, "**/Models").ToArray(),
+                    .. Glob.Directories(root, "**/Classes").ToArray(),
+                    .. Glob.Directories(root, "**/*extensions",
+                        GlobOptions.CaseInsensitive).ToArray()
             ];
 
         List<string> ordered = directories.OrderBy(x => x).ToList();
