@@ -180,6 +180,24 @@ public class GlobbingOperations
         Done?.Invoke("Finished - see log file");
 
     }
+    public static async Task IncludeExclude(string parentFolder, string[] patterns, string[] excludePatterns)
+    {
+
+        Matcher matcher = new();
+        matcher.AddIncludePatterns(patterns);
+        matcher.AddExcludePatterns(excludePatterns);
+
+        await Task.Run(() =>
+        {
+            foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+            {
+                TraverseFileMatch?.Invoke(new FileMatchItem(file));
+            }
+        });
+
+        Done?.Invoke("Finished - see log file");
+
+    }
     /// <summary>
     /// Pass back full path and file name
     /// </summary>

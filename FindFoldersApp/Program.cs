@@ -22,5 +22,7 @@ internal partial class Program
 
         File.WriteAllText("directories.txt", string.Join(Environment.NewLine, ordered));
 
+
+
     }
 }
