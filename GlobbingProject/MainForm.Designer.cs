@@ -30,39 +30,51 @@ namespace GlobbingProject
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.ExecuteButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            ExecuteButton = new Button();
+            button1 = new Button();
+            SuspendLayout();
             // 
             // ExecuteButton
             // 
-            this.ExecuteButton.Location = new System.Drawing.Point(161, 62);
-            this.ExecuteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ExecuteButton.Name = "ExecuteButton";
-            this.ExecuteButton.Size = new System.Drawing.Size(117, 31);
-            this.ExecuteButton.TabIndex = 1;
-            this.ExecuteButton.Text = "Execute";
-            this.ExecuteButton.UseVisualStyleBackColor = true;
-            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
+            ExecuteButton.Location = new Point(161, 62);
+            ExecuteButton.Margin = new Padding(3, 4, 3, 4);
+            ExecuteButton.Name = "ExecuteButton";
+            ExecuteButton.Size = new Size(117, 31);
+            ExecuteButton.TabIndex = 1;
+            ExecuteButton.Text = "Execute";
+            ExecuteButton.UseVisualStyleBackColor = true;
+            ExecuteButton.Click += ExecuteButton_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(161, 109);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 154);
-            this.Controls.Add(this.ExecuteButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Globbing";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(439, 180);
+            Controls.Add(button1);
+            Controls.Add(ExecuteButton);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Globbing";
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Button ExecuteButton;
+        private Button button1;
     }
 }
 

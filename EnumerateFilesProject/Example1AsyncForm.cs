@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 using DirectoryHelpersLibrary.Classes;
 using DirectoryHelpersLibrary.Models;
 using EnumerateFilesProject.Extensions;
@@ -23,7 +13,7 @@ namespace EnumerateFilesProject
     /// over in a while statement which using an event to pass results
     /// back to the caller.
     ///
-    /// By default inaccessible are excluded.
+    /// By default, inaccessible are excluded.
     ///
     /// Any file with Assembly or Designer in the name are not included
     /// in the ListBox. This may also be done in the method while excluding
@@ -77,6 +67,8 @@ namespace EnumerateFilesProject
             EnumerationOptions enumerationOptions = new EnumerationOptions() { IgnoreInaccessible = true };
 
             DirectoryOperations2.Example2Sync(path, searchPattern, enumerationOptions);
+
+
 
         }
 
