@@ -9,7 +9,7 @@ internal partial class Program
     {
         GlobbingOperations.TraverseFileMatch += GlobbingOperations_TraverseFileMatch;
         GlobbingOperations.Done += message => AnsiConsole.MarkupLine($"[white on blue]{message}[/]");
-        //InitializeConfiguration();
+        InitializeConfiguration();
         var settings = SetupConfiguration.LoadSettingsFromFile();
         await GlobbingOperations.GetFiles(
             settings.RootFolder,

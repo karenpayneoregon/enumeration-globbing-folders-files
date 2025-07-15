@@ -9,5 +9,7 @@
       "**/_Retired/**",
       "**/XX-DO-NOT-USE**"
     ]
-  }
+  },
+  "LogFileName": "Log.txt",
+  "DelimitedItems": "ArrayNew,client.group does not contain,ContentID=intradoccontribrefguide"
 }

@@ -77,4 +77,22 @@ internal class GlobbingOperations
     {
         // Implement scanning logic here along with logging
     }
+
+    /// <summary>
+    /// Converts a comma-delimited string into an array of trimmed strings.
+    /// </summary>
+    /// <param name="input">
+    /// The input string containing comma-separated values. If the input is null, empty, or consists only of whitespace, an empty array is returned.
+    /// </param>
+    /// <returns>
+    /// An array of strings obtained by splitting the input string on commas. Each resulting string is trimmed of leading and trailing whitespace.
+    /// </returns>
+    public static string[] ConvertCommaDelimitedStringToArray(string input) =>
+        string.IsNullOrWhiteSpace(input)
+            ? []
+            : input.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => s.Trim())
+                .ToArray();
+
+
 }

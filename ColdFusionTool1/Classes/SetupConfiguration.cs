@@ -20,7 +20,10 @@ public class SetupConfiguration
             FilePatterns = new FilePattern
             {
                 Include = ["**/*.cfm", "**/*.cfc"],
-                Exclude = null
+                Exclude = [
+                    "**/_Retired/**",
+                    "**/XX-DO-NOT-USE**"
+                ]
             }
         };
 
@@ -44,14 +47,10 @@ public class SetupConfiguration
     {
         var settings = SetAppSettings();
 
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
 
         try
         {
-            string json = JsonSerializer.Serialize(settings, options);
+            string json = JsonSerializer.Serialize(settings, Indented);
             File.WriteAllText(filePath, json);
         }
         catch (Exception ex)
@@ -60,6 +59,8 @@ public class SetupConfiguration
             throw;
         }
     }
+
+    public static JsonSerializerOptions Indented => new() { WriteIndented = true };
     /// <summary>
     /// Loads the application configuration settings from a specified JSON file.
     /// </summary>
