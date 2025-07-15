@@ -44,6 +44,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "January26RecursiveWindowsFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindFoldersApp", "FindFoldersApp\FindFoldersApp.csproj", "{D498291E-14B5-45CF-A7BD-82662E37D51D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColdFusionTool1", "ColdFusionTool1\ColdFusionTool1.csproj", "{160132D9-18A6-496C-BED3-F12BBC516F01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{D498291E-14B5-45CF-A7BD-82662E37D51D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D498291E-14B5-45CF-A7BD-82662E37D51D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D498291E-14B5-45CF-A7BD-82662E37D51D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160132D9-18A6-496C-BED3-F12BBC516F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160132D9-18A6-496C-BED3-F12BBC516F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160132D9-18A6-496C-BED3-F12BBC516F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160132D9-18A6-496C-BED3-F12BBC516F01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{9D3686EC-D015-4093-A941-58F04E3DA2E5} = {2B5A957C-F2C7-4826-AC2D-76BFE8B09806}
 		{C855ADDB-4358-4D3D-AA1E-E1307907C577} = {2B5A957C-F2C7-4826-AC2D-76BFE8B09806}
 		{D498291E-14B5-45CF-A7BD-82662E37D51D} = {F604741E-E9CB-46DF-B03F-A5C9957B3437}
+		{160132D9-18A6-496C-BED3-F12BBC516F01} = {2B5A957C-F2C7-4826-AC2D-76BFE8B09806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C36B04D4-64ED-463E-AE90-A3D045DD62A1}

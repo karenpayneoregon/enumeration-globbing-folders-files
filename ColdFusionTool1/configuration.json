@@ -1,0 +1,13 @@
+{
+  "RootFolder": "C:\\OED\\WebApps\\cf11-EDwebMain",
+  "FilePatterns": {
+    "Include": [
+      "**/*.cfm",
+      "**/*.cfc"
+    ],
+    "Exclude": [
+      "**/_Retired/**",
+      "**/XX-DO-NOT-USE**"
+    ]
+  }
+}
