@@ -67,6 +67,7 @@ internal class GlobbingOperations
                 TraverseFileMatch?.Invoke(item);
                 Scan(item);
             }
+
         });
 
         Done?.Invoke("Finished scanning");
@@ -80,7 +81,9 @@ internal class GlobbingOperations
 
     private static void WriteResult()
     {
-        // Implement logic to write results to a file or output
+        /*
+         * Need user input to determine how to write results.
+         */
     }
 
 

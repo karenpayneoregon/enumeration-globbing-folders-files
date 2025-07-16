@@ -8,11 +8,11 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
-        
+
+        var lines = await FileOperations.ReadTexFileAsync("Test.txt");
+
         GlobbingOperations.TraverseFileMatch += GlobbingOperations_TraverseFileMatch;
         GlobbingOperations.Done += message => AnsiConsole.MarkupLine($"    [white on blue]{message}[/]");
-
-        var test = AppData.Instance.Configuration;
 
         //InitializeConfiguration();
 

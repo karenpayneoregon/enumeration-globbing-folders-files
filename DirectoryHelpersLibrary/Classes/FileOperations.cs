@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DirectoryHelpersLibrary.Models;
+using System.Text;
 
 namespace DirectoryHelpersLibrary.Classes;
 
@@ -11,14 +12,14 @@ public class FileOperations
     /// <returns>file contents</returns>
     public static async Task<string> ReadAllTextAsync(string fileName)
     {
-        StringBuilder builder = new ();
-            
+        StringBuilder builder = new();
+
         await using var fileStream = File.OpenRead(fileName);
-            
+
         using var streamReader = new StreamReader(fileStream);
-            
+
         string line = await streamReader.ReadLineAsync();
-            
+
         while (line != null)
         {
             builder.AppendLine(line);
@@ -35,8 +36,8 @@ public class FileOperations
     /// <returns>contents as a list of string</returns>
     public static async Task<List<string>> ReadAllTextListAsync(string fileName)
     {
-        List<string> lineList = new ();
-            
+        List<string> lineList = new();
+
         await using var fileStream = File.OpenRead(fileName);
         using var streamReader = new StreamReader(fileStream);
 
@@ -50,4 +51,26 @@ public class FileOperations
 
         return lineList;
     }
+
+    public static async Task<List<LineInfo>> ReadTextListAsync(string fileName)
+    {
+        List<LineInfo> lineList = new();
+
+        await using var fileStream = File.OpenRead(fileName);
+        using var streamReader = new StreamReader(fileStream);
+
+        int lineNumber = 1;
+
+        while (await streamReader.ReadLineAsync() is { } line)
+        {
+            lineList.Add(new LineInfo
+            {
+                LineNumber = lineNumber++,
+                LineText = line
+            });
+        }
+
+        return lineList;
+    }
+
 }

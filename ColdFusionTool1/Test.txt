@@ -1,0 +1,32 @@
+graph TD
+    L1["Level 1: Published"]
+    L2["Level 2: Limited"]
+    L3["Level 3: Restricted"]
+    L4["Level 4: Critical"]
+
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+
+    %% Details for Level 1
+    L1_desc[/"Low-sensitive information. Not protected from disclosure. \nExamples: Press releases, brochures, public webpages. \nOED Example: Public-facing documents, notices for Oregonians."/]
+
+    %% Details for Level 2
+    L2_desc[/"Potentially sensitive, may not be protected but if widely shared, could jeopardize privacy/security. \nExamples: Risk management docs, internal audit reports, unprotected addresses. \nOED Example: Customer ID, claims info."/]
+
+    %% Details for Level 3
+    L3_desc[/"Sensitive or regulated data, limited internal use. Exempt from disclosure. \nExamples: PII (e.g., SSN, credit card), network diagrams. \nOED Example: Info that combined could reveal identity."/]
+
+    %% Details for Level 4
+    L4_desc[/"Extremely sensitive, named individuals only. Disclosure could cause serious harm or death. \nExamples: Data whose exposure causes injury, death, or critical operation disruption."/]
+
+    L1 --> L1_desc
+    L2 --> L2_desc
+    L3 --> L3_desc
+    L4 --> L4_desc
+
+    %% Style for Levels
+    style L1 fill:#2e7d32,stroke:#2e7d32,stroke-width:2px,color:#ffffff
+    style L2 fill:#ffeb3b,stroke:#fbc02d,stroke-width:2px,color:#000000
+    style L3 fill:#ff0000,stroke:#ff0000,stroke-width:2px,color:#ffffff
+    style L4 fill:#ff0000,stroke:#ff0000,stroke-width:2px,color:#ffffff
