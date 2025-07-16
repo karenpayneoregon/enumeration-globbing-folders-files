@@ -10,7 +10,7 @@ internal partial class Program
     {
         
         GlobbingOperations.TraverseFileMatch += GlobbingOperations_TraverseFileMatch;
-        GlobbingOperations.Done += message => AnsiConsole.MarkupLine($"[white on blue]{message}[/]");
+        GlobbingOperations.Done += message => AnsiConsole.MarkupLine($"    [white on blue]{message}[/]");
 
         var test = AppData.Instance.Configuration;
 
@@ -18,6 +18,7 @@ internal partial class Program
 
         AnsiConsole.MarkupLine("[mediumorchid1]Scanning[/]");
         await Task.Delay(2000);
+
         await GlobbingOperations.GetFiles(
             AppData.Instance.Configuration.RootFolder,
             AppData.Instance.Configuration.FilePatterns.Include,

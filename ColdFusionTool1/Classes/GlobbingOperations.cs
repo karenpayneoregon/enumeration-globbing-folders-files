@@ -69,13 +69,18 @@ internal class GlobbingOperations
             }
         });
 
-        Done?.Invoke("Finished");
+        Done?.Invoke("Finished scanning");
 
     }
 
     private static void Scan(FileMatchItem sender)
     {
-        // Implement scanning logic here along with logging
+        // Implement scanning logic here 
+    }
+
+    private static void WriteResult()
+    {
+        // Implement logic to write results to a file or output
     }
 
 
