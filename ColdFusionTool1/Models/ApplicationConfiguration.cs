@@ -22,6 +22,7 @@ public class FileMatchItem
     }
     public string Folder { get; init; }
     public string FileName { get; init; }
+    public string FullPath => Path.Combine(Folder, FileName);
     public override string ToString() => $"{Folder}\\{FileName}";
 
 }

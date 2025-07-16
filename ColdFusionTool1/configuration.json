@@ -10,6 +10,6 @@
       "**/XX-DO-NOT-USE**"
     ]
   },
-  "LogFileName": "Log.txt",
+  "LogFileName": "ErrorLog.txt",
   "DelimitedItems": "ArrayNew,client.group does not contain,ContentID=intradoccontribrefguide"
 }

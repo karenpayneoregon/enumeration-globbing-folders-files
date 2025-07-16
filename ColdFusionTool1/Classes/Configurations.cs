@@ -2,7 +2,7 @@
 using System.Text.Json;
 
 namespace ColdFusionTool1.Classes;
-public class SetupConfiguration
+public class Configurations
 {
     /// <summary>
     /// Initializes and returns a new instance of the <see cref="ApplicationConfiguration"/> class 
@@ -56,7 +56,6 @@ public class SetupConfiguration
         catch (Exception ex)
         {
             Console.Error.WriteLine($"Error writing settings to file: {ex.Message}");
-            throw;
         }
     }
 
@@ -85,28 +84,20 @@ public class SetupConfiguration
     /// </exception>
     public static ApplicationConfiguration LoadSettingsFromFile(string filePath = "configuration.json")
     {
-        try
+        if (!File.Exists(filePath))
         {
-            if (!File.Exists(filePath))
-            {
-                Console.Error.WriteLine($"Configuration file not found: {filePath}");
-                return null!;
-            }
-
-            string json = File.ReadAllText(filePath);
-
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-            var config = JsonSerializer.Deserialize<ApplicationConfiguration>(json, options);
-            return config!;
+            Console.Error.WriteLine($"Configuration file not found: {filePath}");
+            return null!;
         }
-        catch (Exception ex)
+
+        string json = File.ReadAllText(filePath);
+
+        var options = new JsonSerializerOptions
         {
-            Console.Error.WriteLine($"Error reading settings from file: {ex.Message}");
-            throw;
-        }
+            PropertyNameCaseInsensitive = true
+        };
+
+        var config = JsonSerializer.Deserialize<ApplicationConfiguration>(json, options);
+        return config!;
     }
 }

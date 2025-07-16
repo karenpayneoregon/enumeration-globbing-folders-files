@@ -1,5 +1,6 @@
 ﻿using ColdFusionTool1.Classes;
 using ColdFusionTool1.Models;
+using Serilog;
 
 namespace ColdFusionTool1;
 
@@ -7,14 +8,20 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
+        
         GlobbingOperations.TraverseFileMatch += GlobbingOperations_TraverseFileMatch;
         GlobbingOperations.Done += message => AnsiConsole.MarkupLine($"[white on blue]{message}[/]");
-        InitializeConfiguration();
-        var settings = SetupConfiguration.LoadSettingsFromFile();
+
+        var test = AppData.Instance.Configuration;
+
+        //InitializeConfiguration();
+
+        AnsiConsole.MarkupLine("[mediumorchid1]Scanning[/]");
+        await Task.Delay(2000);
         await GlobbingOperations.GetFiles(
-            settings.RootFolder,
-            settings.FilePatterns.Include,
-            settings.FilePatterns.Exclude);
+            AppData.Instance.Configuration.RootFolder,
+            AppData.Instance.Configuration.FilePatterns.Include,
+            AppData.Instance.Configuration.FilePatterns.Exclude);
 
         Console.ReadLine();
     }
@@ -24,14 +31,14 @@ internal partial class Program
     /// and saving them to a file.
     /// </summary>
     /// <remarks>
-    /// This method internally calls <see cref="SetupConfiguration.SetAppSettings"/> 
+    /// This method internally calls <see cref="Configurations.SetAppSettings"/> 
     /// to initialize the default application settings and 
-    /// <see cref="SetupConfiguration.SaveSettingsToFile(string)"/> to persist them.
+    /// <see cref="Configurations.SaveSettingsToFile(string)"/> to persist them.
     /// </remarks>
     private static void InitializeConfiguration()
     {
-        SetupConfiguration.SetAppSettings();
-        SetupConfiguration.SaveSettingsToFile();
+        Configurations.SetAppSettings();
+        Configurations.SaveSettingsToFile();
     }
 
     /// <summary>
@@ -43,6 +50,6 @@ internal partial class Program
     /// </param>
     private static void GlobbingOperations_TraverseFileMatch(FileMatchItem sender)
     {
-        AnsiConsole.MarkupLine($"[green]Scanning:[/] {sender}");
+        AnsiConsole.MarkupLine($"    {sender}");
     }
 }

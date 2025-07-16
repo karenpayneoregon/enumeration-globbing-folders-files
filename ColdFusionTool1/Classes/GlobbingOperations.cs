@@ -7,7 +7,7 @@ namespace ColdFusionTool1.Classes;
 /// Provides operations for file system globbing, including file matching and traversal.
 /// </summary>
 /// <remarks>
-/// This class utilizes the <see cref="Microsoft.Extensions.FileSystemGlobbing.Matcher"/> to perform
+/// This class utilizes the <see cref="Matcher"/> to perform
 /// file matching based on include and exclude patterns. It also provides events to notify
 /// subscribers about file matches and the completion of operations.
 /// </remarks>
@@ -15,13 +15,13 @@ internal class GlobbingOperations
 {
     public delegate void OnTraverseFileMatch(FileMatchItem sender);
     /// <summary>
-    /// Informs listener of a <see cref="FileMatchItem"/>
+    /// Notifies subscribers about a matched <see cref="FileMatchItem"/>.
     /// </summary>
     public static event OnTraverseFileMatch TraverseFileMatch;
 
     public delegate void OnDone(string message);
     /// <summary>
-    /// Indicates processing has completed
+    /// Signals the completion of the processing operation.
     /// </summary>
     public static event OnDone Done;
 
@@ -41,7 +41,7 @@ internal class GlobbingOperations
     /// A <see cref="Task"/> representing the asynchronous operation.
     /// </returns>
     /// <remarks>
-    /// This method uses the <see cref="Microsoft.Extensions.FileSystemGlobbing.Matcher"/> to match files
+    /// This method uses the <see cref="Matcher"/> to match files
     /// based on the provided patterns. It triggers the <see cref="TraverseFileMatch"/> event for each matched file
     /// and the <see cref="Done"/> event upon completion of the operation.
     /// </remarks>
@@ -78,21 +78,7 @@ internal class GlobbingOperations
         // Implement scanning logic here along with logging
     }
 
-    /// <summary>
-    /// Converts a comma-delimited string into an array of trimmed strings.
-    /// </summary>
-    /// <param name="input">
-    /// The input string containing comma-separated values. If the input is null, empty, or consists only of whitespace, an empty array is returned.
-    /// </param>
-    /// <returns>
-    /// An array of strings obtained by splitting the input string on commas. Each resulting string is trimmed of leading and trailing whitespace.
-    /// </returns>
-    public static string[] ConvertCommaDelimitedStringToArray(string input) =>
-        string.IsNullOrWhiteSpace(input)
-            ? []
-            : input.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                .Select(s => s.Trim())
-                .ToArray();
+
 
 
 }

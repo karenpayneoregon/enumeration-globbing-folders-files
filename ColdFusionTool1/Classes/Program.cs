@@ -15,6 +15,6 @@ internal partial class Program
         Console.Title = product!;
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
 
-        SetupLogging.Development();
+        SetupLogging.ToFile();
     }
 }

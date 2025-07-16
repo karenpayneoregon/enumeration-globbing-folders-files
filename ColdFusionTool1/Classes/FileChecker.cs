@@ -1,4 +1,5 @@
 ﻿using ColdFusionTool1.Models;
+using Serilog;
 
 namespace ColdFusionTool1.Classes;
 public class FileChecker
@@ -17,7 +18,7 @@ public class FileChecker
     {
         if (!File.Exists(filePath))
         {
-            return (false, new List<ResultContainer>());
+            return (false, []);
         }
 
         string fileContent;
@@ -29,7 +30,7 @@ public class FileChecker
         catch (Exception ex)
         {
             Console.WriteLine($"Error reading file: {ex.Message}");
-            // TODO Log error
+            Log.Error(ex, $"Error reading file: {ex.Message}");
             return (false, new List<ResultContainer>());
         }
 
