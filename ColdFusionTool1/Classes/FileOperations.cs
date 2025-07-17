@@ -1,4 +1,5 @@
 ﻿using ColdFusionTool1.Models;
+using System.Text.RegularExpressions;
 
 namespace ColdFusionTool1.Classes;
 public class FileOperations
@@ -34,4 +35,26 @@ public class FileOperations
 
         return list;
     }
+
+    /// <summary>
+    /// Determines whether the specified input string contains a CGI prefix followed by the target word.
+    /// </summary>
+    /// <param name="input">
+    /// The input string to search. Cannot be null, empty, or consist only of whitespace.
+    /// </param>
+    /// <param name="targetWord">
+    /// The target word to check for after the CGI prefix. Cannot be null, empty, or consist only of whitespace.
+    /// </param>
+    /// <returns>
+    /// <c>true</c> if the input string contains the CGI prefix followed by the target word (case-insensitive); otherwise, <c>false</c>.
+    /// </returns>
+    public static bool HasCgiPrefix(string input, string targetWord)
+    {
+        if (string.IsNullOrWhiteSpace(input) || string.IsNullOrWhiteSpace(targetWord))
+            return false;
+
+        return Regex.IsMatch(input, $@"\bCGI\.{Regex.Escape(targetWord)}\b", RegexOptions.IgnoreCase);
+    }
+
+
 }

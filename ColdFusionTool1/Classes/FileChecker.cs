@@ -29,7 +29,6 @@ public class FileChecker
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error reading file: {ex.Message}");
             Log.Error(ex, $"Error reading file: {ex.Message}");
             return (false, new List<ResultContainer>());
         }

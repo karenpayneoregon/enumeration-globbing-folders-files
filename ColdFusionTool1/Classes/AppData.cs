@@ -8,12 +8,12 @@ public sealed class AppData
 
     public static AppData Instance => Lazy.Value;
     public ApplicationConfiguration Configuration { get; set; }
-    public string[] Terms { get; set; }
+    public string[] Tokens { get; set; }
 
     private AppData()
     {
         Configuration = Configurations.LoadSettingsFromFile();
-        Terms = ToCommaDelimitedStringToArray(Configuration.DelimitedItems);
+        Tokens = File.ReadAllLines(Configuration.TokensFileName);
     }
 
 

@@ -1,4 +1,5 @@
-﻿using ColdFusionTool1.Classes;
+﻿using System.Text;
+using ColdFusionTool1.Classes;
 using ColdFusionTool1.Models;
 using Serilog;
 
@@ -8,6 +9,12 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
+  
+        //List<string> tokens = ["test AUTH_PASSWORD", "test CGI.AUTH_PASSWORD", "test cgi.AUTH_PASSWORD"];
+        //Console.WriteLine(FileOperations.HasCgiPrefix("The Payroll module needs review.", "Payroll"));
+        //Console.WriteLine(FileOperations.HasCgiPrefix("The CGI.Payroll module needs review.", "Payroll"));
+        //Console.WriteLine(FileOperations.HasCgiPrefix("The cgi.payroll module needs review.", "Payroll"));
+  
 
         var lines = await FileOperations.ReadTexFileAsync("Test.txt");
 

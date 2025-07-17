@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.FileSystemGlobbing;
 using ColdFusionTool1.Models;
+using Serilog;
 
 namespace ColdFusionTool1.Classes;
 
@@ -48,29 +49,36 @@ internal class GlobbingOperations
     public static async Task GetFiles(string parentFolder, List<string> patterns, List<string> excludePatterns)
     {
 
-        List<FileMatchItem> list = [];
-
-        Matcher matcher = new();
-        matcher.AddIncludePatterns(patterns);
-
-        if (excludePatterns is not null)
+        try
         {
-            matcher.AddExcludePatterns(excludePatterns);
-        }
+            List<FileMatchItem> list = [];
 
-        await Task.Run(() =>
-        {
+            Matcher matcher = new();
+            matcher.AddIncludePatterns(patterns);
 
-            foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+            if (excludePatterns is not null)
             {
-                var item = new FileMatchItem(file);
-                TraverseFileMatch?.Invoke(item);
-                Scan(item);
+                matcher.AddExcludePatterns(excludePatterns);
             }
 
-        });
+            await Task.Run(() =>
+            {
 
-        Done?.Invoke("Finished scanning");
+                foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+                {
+                    var item = new FileMatchItem(file);
+                    TraverseFileMatch?.Invoke(item);
+                    Scan(item);
+                }
+
+            });
+
+            Done?.Invoke("Finished scanning");
+        }
+        catch (Exception e)
+        {
+            Log.Error(e,"Failed on traversing a folder");
+        }
 
     }
 
@@ -78,15 +86,5 @@ internal class GlobbingOperations
     {
         // Implement scanning logic here 
     }
-
-    private static void WriteResult()
-    {
-        /*
-         * Need user input to determine how to write results.
-         */
-    }
-
-
-
 
 }

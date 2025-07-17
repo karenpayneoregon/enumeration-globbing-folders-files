@@ -1,5 +1,5 @@
 {
-  "RootFolder": "C:\\OED\\WebApps\\cf11-EDwebMain",
+  "RootFolder": "\\\\wdoedwebl07.oed.state\\HTTP\\__SCAN_ME\\devweb07-HTTP\\headfoot\\",
   "FilePatterns": {
     "Include": [
       "**/*.cfm",
@@ -7,9 +7,10 @@
     ],
     "Exclude": [
       "**/_Retired/**",
-      "**/XX-DO-NOT-USE**"
+      "**/*bkup/**"
     ]
   },
   "LogFileName": "ErrorLog.txt",
-  "DelimitedItems": "ArrayNew,client.group does not contain,ContentID=intradoccontribrefguide"
+  "TokensFileName": "CGI_variables.txt",
+  "ReportFileName": "Report.txt"
 }

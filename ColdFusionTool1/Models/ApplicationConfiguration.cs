@@ -4,7 +4,8 @@ public class ApplicationConfiguration
     public string RootFolder { get; set; }
     public FilePattern FilePatterns { get; set; }
     public string LogFileName { get; set; }
-    public string DelimitedItems { get; set; }
+    public string TokensFileName { get; set; }
+    //public string DelimitedItems { get; set; }
 }
 
 public class FilePattern

@@ -16,7 +16,6 @@ public class Configurations
         {
             RootFolder = "C:\\OED\\WebApps\\cf11-EDwebMain",
             LogFileName = "Log.txt",
-            DelimitedItems = "ArrayNew,client.group does not contain,ContentID=intradoccontribrefguide",
             FilePatterns = new FilePattern
             {
                 Include = ["**/*.cfm", "**/*.cfc"],
@@ -46,8 +45,7 @@ public class Configurations
     public static void SaveSettingsToFile(string filePath = "configuration.json")
     {
         var settings = SetAppSettings();
-
-
+        
         try
         {
             string json = JsonSerializer.Serialize(settings, Indented);
